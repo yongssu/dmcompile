@@ -1,11 +1,12 @@
 #define _CRT_SECURE_NO_WARNINGS
-
-#include "scanner.h"
-
+#define PARSER_DEBUG
+#include <stdio.h>
+#include <stdlib.h>
+/*#include "scanner.h"
 int main()
 {
 	Token token;
-	if (InitScanner("./test.txt"))
+	if(!InitScanner("./test.txt"))
 	{
 		printf("open source file error!\n");
 	}
@@ -22,5 +23,14 @@ int main()
 	CloseScanner();
 	system("pause");
 	return 0;
-}
+}*/
 
+extern void Parser(char *SrcFilePtr);
+int main()
+{
+
+	char *file = "./test.txt";
+	Parser(file);
+	system("pause");
+	return 0;
+}
