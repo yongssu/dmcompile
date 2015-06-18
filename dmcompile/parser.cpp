@@ -1,6 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "parser.h"
-#define PARSER_DEBUG
+//#define PARSER_DEBUG
 
 #ifndef PARSER_DEBUG
 #include "semantics.h"
@@ -108,7 +108,7 @@ void ErrMsg(unsigned LineNo, char *descrip, char *string)
 #endif
 
 #ifdef _VC_COMPILER
-	//MessageBox(NULL, msg, "error!", MB_OK);
+	MessageBox(NULL, msg, "error!", MB_OK);
 #endif
 
 #ifdef _BC_COMPILER
@@ -231,8 +231,8 @@ static void OriginStatement(void)
 	MatchToken(L_BRACKET);
 	tmp = Expression();
 #ifndef PARSER_DEBUG
-	Origin_x = 100; //Origin_x = GetExprValue(tmp); //获取横坐标的平移距离
-	//DelExprTree(tmp);
+	Origin_x = GetExprValue(tmp); //获取横坐标的平移距离
+	DelExprTree(tmp);
 #endif
 	MatchToken(COMMA);
 	tmp = Expression();
@@ -332,7 +332,7 @@ static void ForStatement(void)
 	MatchToken(R_BRACKET);
 	call_match(")");
 #ifndef PARSER_DEBUG
-	//DrawLoop(Start, End, Step, x_ptr, y_ptr); //绘制图形
+	DrawLoop(Start, End, Step, x_ptr, y_ptr); //绘制图形
 	DelExprTree(x_ptr); //释放横坐标语法树所占空间
 	DelExprTree(y_ptr); //释放纵坐标语法树所占空间
 #endif
