@@ -1,2 +1,6 @@
-SCALE IS (100, 100/3);
-FOR T FROM 0 TO 2*PI STEP PI/50 DRAW (cos(T),sin(T));
+origin is (250, 150);
+rot is 0;
+scale is (100, 100);
+for T from 0 to 2*PI step PI/360 draw(cos(T), sin(T));
+scale is (50, 50);
+for T from 0 to 2*PI step PI/360 draw(cos(T), sin(T));

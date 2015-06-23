@@ -108,7 +108,7 @@ void ErrMsg(unsigned LineNo, char *descrip, char *string)
 #endif
 
 #ifdef _VC_COMPILER
-	MessageBox(NULL, msg, "error!", MB_OK);
+	MessageBox(NULL, (LPCWSTR)msg, L"error!", MB_OK);
 #endif
 
 #ifdef _BC_COMPILER

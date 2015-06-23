@@ -31,7 +31,7 @@ static void CalcCoord(struct ExprNode *Hor_Exp, struct ExprNode *Ver_Exp, double
 
 	//进行比例变换
 	HorCord *= Scale_x;
-	HorCord *= Scale_y;
+	VerCord *= Scale_y;
 
 	//进行旋转变换
 	Hor_tmp = HorCord * cos(Rot_angle) + VerCord * sin(Rot_angle);
@@ -138,7 +138,7 @@ void CloseGraph(void)
 void DrawPixel(unsigned long x, unsigned long y)
 {
 #ifdef _VC_COMPILER
-	SetPixel(hDC, x, y, black);
+	SetPixel(hDC, x, y, red);
 #endif
 
 #ifdef _BC_COMPILER

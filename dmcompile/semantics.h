@@ -1,6 +1,7 @@
 #ifndef SEMANTICS_H_
 #define SEMANTICS_H_
 
+#define _VC_COMPILER
 #ifdef _VC_COMPILER
 #include <Windows.h>
 #include <wingdi.h>

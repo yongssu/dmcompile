@@ -36,6 +36,7 @@ int main()
 }*/
 
 #define _VC_COMPILER
+#define PARSER_DEBUG
 #ifdef _VC_COMPILER
 
 #include "semantics.h"
@@ -73,7 +74,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	//------------------------------
 	// 调用绘图语言解释器
-	Parser(SrcFilePath);
+	//Parser(SrcFilePath);
 	//--------------------------------
 
 	//进入window消息循环
@@ -127,7 +128,7 @@ bool PrepareWindow(HINSTANCE hInst, HINSTANCE hPreInstance, int nCmdShow)
 	UpdateWindow(hWnd);
 	SetCursor(LoadCursor(hInst, IDC_ARROW));
 
-	hDC = GetDC(hWnd);
+	//hDC = GetDC(hWnd);
 	return true;
 }
 
@@ -165,7 +166,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT Message, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_PAINT:
 		BeginPaint(hWnd, &pt);
-		//Parser(SrcFilePath);
+		hDC = pt.hdc;
+		
+		Parser(SrcFilePath);
+		//Rectangle(pt.hdc, 10, 10, 50, 50);
+		//SetPixel(pt.hdc, 10, 100, RGB(255, 0, 0));
 		EndPaint(hWnd, &pt);
 		break;
 	}

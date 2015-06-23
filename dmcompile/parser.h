@@ -27,5 +27,5 @@ struct ExprNode
 };
 
 //语法分析器对外接口
-extern void Parser(char *SrcFilePtr);
+extern void Parser(char *SrcFilePtr, HDC h);
 #endif
